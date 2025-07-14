@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tle_wcr</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      background: url('f5f27448c036af645c27467c789ad759.gif') no-repeat center center fixed;
+      background-size: cover;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      cursor: pointer;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px black;
+      transition: background 0.3s;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .overlay:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .main-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: white;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+      padding: 1rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .main-content img {
+      width: 120px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 5px white);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .main-content h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 2s ease-in-out;
+      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet);
+      background-size: 1000% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 10s linear infinite;
+    }
+    .main-content p {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #ffecb3;
+      animation: fadeIn 2.2s ease-in-out;
+    }
+    .links {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      width: 100%;
+      max-width: 400px;
+    }
+    .links a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      background: rgba(0,0,0,0.5);
+      padding: 0.75rem;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      transition: transform 0.2s, background 0.3s;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+    .links a:hover {
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.03);
+    }
+    .volume-control {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.75rem 1rem;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(6px);
+      color: white;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      z-index: 5;
+      animation: fadeIn 2.7s ease-in-out;
+    }
+    .volume-control input {
+      cursor: pointer;
+      appearance: none;
+      width: 120px;
+      height: 6px;
+      background: #ddd;
+      border-radius: 10px;
+      outline: none;
+    }
+    .volume-control input::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffecb3;
+      box-shadow: 0 0 5px rgba(255,255,255,0.5);
+      transition: background 0.3s;
+    }
+    .volume-control input::-webkit-slider-thumb:hover {
+      background: #ffe066;
+    }
+    .volume-control label {
+      font-size: 0.95rem;
+    }
+    .volume-display {
+      font-size: 0.9rem;
+      color: #ffecb3;
+      min-width: 35px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" onclick="enterSite()">touch to continue</div>
+
+  <div class="main-content" id="mainContent">
+    <img src="logo cute.png" alt="logo">
+    <h1>tle_wcr</h1>
+    <p>มีใจทักมีตังจ้าง</p>
+    <div class="links">
+      <a href="https://www.instagram.com/tle_wcr/" target="_blank">📸 Instagram</a>
+      <a href="https://www.facebook.com/watcharaphon.sainatee" target="_blank">📘 Facebook</a>
+      <a href="https://discord.gg/ka3WwFtheH" target="_blank">💬 Discord</a>
+      <a href="https://open.spotify.com/playlist/4VDUpfecDOVsUadtwLLCct?si=89fbca7b81f54789" target="_blank">🎵 Spotify Playlist</a>
+    </div>
+  </div>
+
+  <div class="volume-control">
+    <label for="volume">เสียง:</label>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.25" />
+    <span class="volume-display" id="volumeDisplay">25%</span>
+  </div>
+
+  <audio id="bgMusic" src="Love Songs Bonus.mp3" loop></audio>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const volumeSlider = document.getElementById('volume');
+    const volumeDisplay = document.getElementById('volumeDisplay');
+
+    function enterSite() {
+      document.querySelector('.overlay').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'flex';
+      audio.volume = parseFloat(volumeSlider.value);
+      audio.play().catch(e => console.log("Autoplay error:", e));
+    }
+
+    volumeSlider.addEventListener('input', function () {
+      const volumeValue = parseFloat(this.value);
+      audio.volume = volumeValue;
+      volumeDisplay.textContent = Math.round(volumeValue * 100) + '%';
+    });
+  </script>
+</body>
+</html>
